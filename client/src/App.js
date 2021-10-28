@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import './App.css';
 
 function App() {
@@ -6,14 +6,14 @@ function App() {
 
   useEffect(() => {
     fetch('/api/foo')
-      .then(res => res.json(message))
-      .catch(err => console.log(err))
+      .then(res => res.json())
+      .then(data => setMessage(data.message))
   }, [])
 
   return (
     <div className="App">
       <header className="App-header">
-        <div>{setMessage}</div>
+        {message}
       </header>
     </div>
   );
